@@ -163,3 +163,4 @@ C:\Users\Semih\Desktop\reposa\InstagramEtiketTakip\ConsoleApp2\obj\Debug\netcore
 C:\Users\Semih\Desktop\reposa\InstagramEtiketTakip\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.pdb
 C:\Users\Semih\Desktop\reposa\InstagramEtiketTakip\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.genruntimeconfig.cache
 C:\Users\Semih\Desktop\reposa\InstagramEtiketTakip\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.csprojAssemblyReference.cache
+C:\Users\Semih\Desktop\reposa\InstagramEtiketTakip\ConsoleApp2\bin\Debug\netcoreapp3.1\WebDriver.Support.dll
