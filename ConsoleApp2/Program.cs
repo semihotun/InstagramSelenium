@@ -20,8 +20,8 @@ namespace ConsoleApp2
                 IWebElement girisbutonu = driver.FindElement(By.CssSelector(".sqdOP.L3NKy.y3zKF"));
 
                 Bilgiler bilgi = new Bilgiler();
-                bilgi.kullaniciAdi = "smhotn";
-                bilgi.sifre = "Semih3189.";
+                bilgi.kullaniciAdi = "";
+                bilgi.sifre = "";
                 bilgi.yonlenicektag = "izmir";
 
                 userName.SendKeys(bilgi.kullaniciAdi);
