@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UlpHksNnbes5T8xt/Gkrc8AGgO8e68FFMNfmPJOGRjIQj+hvpnkwrR1dMcjCC+SB/tJvYG1ssElQSR1e+UpQQQ==",
+  "dgSpecHash": "V0Y6KfENhfKlLTzMPAbnB/Q0ADKfpFpREQ5QsD8m/nsn+Z1ETstRRSEqKVZPNhrJxnEwCXBHd0PVxf5pQZSiKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Semih\\Desktop\\reposa\\InstagramEtiketTakip\\ConsoleApp2\\ConsoleApp2.csproj",
+  "projectFilePath": "C:\\Users\\Semih\\source\\repos\\InstagramSelenium\\ConsoleApp2\\ConsoleApp2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Semih\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Semih\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
@@ -66,7 +66,7 @@
     "C:\\Users\\Semih\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Semih\\.nuget\\packages\\selenium.support\\3.141.0\\selenium.support.3.141.0.nupkg.sha512",
     "C:\\Users\\Semih\\.nuget\\packages\\selenium.webdriver\\3.141.0\\selenium.webdriver.3.141.0.nupkg.sha512",
-    "C:\\Users\\Semih\\.nuget\\packages\\selenium.webdriver.chromedriver\\89.0.4389.2300\\selenium.webdriver.chromedriver.89.0.4389.2300.nupkg.sha512",
+    "C:\\Users\\Semih\\.nuget\\packages\\selenium.webdriver.chromedriver\\94.0.4606.6100\\selenium.webdriver.chromedriver.94.0.4606.6100.nupkg.sha512",
     "C:\\Users\\Semih\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Semih\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Semih\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
