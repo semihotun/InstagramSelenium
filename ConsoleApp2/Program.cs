@@ -5,20 +5,38 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using OpenQA.Selenium.Support.UI;
+using System.Management;
+using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 namespace ConsoleApp2
 {
     class Program
     {
+        [DllImport("wininet.dll")]
+        public static extern bool InternetSetOption(IntPtr hInternet, int dwOption, IntPtr lpBuffer, int dwBufferLength);
+        public const int INTERNET_OPTION_SETTINGS_CHANGED = 39;
+        public const int INTERNET_OPTION_REFRESH = 37;
+        static bool settingsReturn, refreshReturn;
+
         static void Main(string[] args)
         {
-            FindTheUnf();
+            //RegistryKey registry = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", true);
+            //registry.SetValue("ProxyEnable", 1);
+            //registry.SetValue("ProxyServer", "123.27.3.246:39915");
+
+            // These lines implement the Interface in the beginning of program 
+            //// They cause the OS to refresh the settings, causing IP to realy update
+            //settingsReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
+            //refreshReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_REFRESH, IntPtr.Zero, 0);
+
+            İnstagramKayit();
         }
         public static IReadOnlyCollection<IWebElement> TakipEttiklerim(Bilgiler bilgi, IWebDriver driver)
         {
             driver.Navigate().GoToUrl($"https://www.instagram.com/" + bilgi.yonlenicektag);
             Thread.Sleep(7000);
-            IWebElement takipEdilenButonu= driver.FindElement(By.CssSelector("#react-root > section > main > div > header > section > ul > li:nth-child(3) > a"));
+            IWebElement takipEdilenButonu = driver.FindElement(By.CssSelector("#react-root > section > main > div > header > section > ul > li:nth-child(3) > a"));
             takipEdilenButonu.Click();
             Thread.Sleep(2500);
             string jsCommand = "" +
@@ -40,7 +58,7 @@ namespace ConsoleApp2
             }
 
             IReadOnlyCollection<IWebElement> follwers = driver.FindElements(By.CssSelector(".FPmhX.notranslate._0imsa"));
-         
+
             return follwers;
 
         }
@@ -52,7 +70,7 @@ namespace ConsoleApp2
             using (IWebDriver driver = new OpenQA.Selenium.Chrome.ChromeDriver(options))
             {
 
-                var UnfList=new List<string>();
+                var UnfList = new List<string>();
                 var followerList = new List<string>();
                 var followList = new List<string>();
 
@@ -64,7 +82,7 @@ namespace ConsoleApp2
                     followerList.Add(item.Text);
                 }
 
-                var followWebElement=TakipEttiklerim(bilgi,driver);
+                var followWebElement = TakipEttiklerim(bilgi, driver);
                 foreach (IWebElement item in followWebElement)
                 {
                     followList.Add(item.Text);
@@ -72,14 +90,14 @@ namespace ConsoleApp2
 
                 foreach (var item in followList)
                 {
-                    if(followerList.Where(x=>x == item).Count() <= 0)
+                    if (followerList.Where(x => x == item).Count() <= 0)
                     {
                         UnfList.Add(item);
                         Console.WriteLine(item);
                     }
                 }
 
-                
+
             }
             Console.ReadKey();
         }
@@ -214,7 +232,13 @@ namespace ConsoleApp2
 
         public static void İnstagramKayit()
         {
+
+
             var options = new OpenQA.Selenium.Chrome.ChromeOptions();
+            var proxy = new Proxy();
+            proxy.HttpProxy = "111.90.179.74:8080";
+            options.Proxy = proxy;
+
             options.BinaryLocation = @"C:\Program Files\Google\Chrome\Application\chrome.exe";
             using (IWebDriver driver = new OpenQA.Selenium.Chrome.ChromeDriver(options))
             {
@@ -245,10 +269,10 @@ namespace ConsoleApp2
                 IWebElement password = driver.FindElement(By.Name("password"));
                 IWebElement Kayıtbutton = driver.FindElement(By.XPath("//button[. = 'Kaydol']"));
                 User user = new User();
-                user.adsoyad = "";
+                user.adsoyad = "sohistory14";
                 user.eposta = tempmail;
-                user.kullaniciadi = "";
-                user.sifre = "";
+                user.kullaniciadi = "sohistory14";
+                user.sifre = "historyso2q";
                 email.SendKeys(user.eposta);
                 fullname.SendKeys(user.adsoyad);
                 username.SendKeys(user.kullaniciadi);
@@ -281,8 +305,7 @@ namespace ConsoleApp2
 
                     try
                     {
-                        sayaç++;
-                        if (sayaç == 3000)
+                        if (!string.IsNullOrEmpty(codelink))
                         {
                             Thread.Sleep(2500);
                             driver.SwitchTo().Window(driver.WindowHandles.Last());
@@ -322,7 +345,7 @@ namespace ConsoleApp2
                 }
 
                 Thread.Sleep(20000);
-
+                Console.ReadKey();
 
 
 
