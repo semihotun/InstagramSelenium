@@ -8,6 +8,7 @@ using OpenQA.Selenium.Support.UI;
 using System.Management;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using System.IO;
 
 namespace ConsoleApp2
 {
@@ -21,6 +22,14 @@ namespace ConsoleApp2
 
         static void Main(string[] args)
         {
+            string ChromeDir = @"C:\Users\{0}\AppData\Local\Google\Chrome\User Data";
+            string yol = string.Format(ChromeDir, "Semih");
+            if (Directory.Exists(yol))
+            {
+                foreach (string dosyaYolu in Directory.GetFiles(yol))
+                    File.Delete(dosyaYolu);
+            }
+
             //RegistryKey registry = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", true);
             //registry.SetValue("ProxyEnable", 1);
             //registry.SetValue("ProxyServer", "123.27.3.246:39915");
@@ -233,11 +242,8 @@ namespace ConsoleApp2
         public static void İnstagramKayit()
         {
 
-
+   
             var options = new OpenQA.Selenium.Chrome.ChromeOptions();
-            var proxy = new Proxy();
-            proxy.HttpProxy = "111.90.179.74:8080";
-            options.Proxy = proxy;
 
             options.BinaryLocation = @"C:\Program Files\Google\Chrome\Application\chrome.exe";
             using (IWebDriver driver = new OpenQA.Selenium.Chrome.ChromeDriver(options))
@@ -269,23 +275,30 @@ namespace ConsoleApp2
                 IWebElement password = driver.FindElement(By.Name("password"));
                 IWebElement Kayıtbutton = driver.FindElement(By.XPath("//button[. = 'Kaydol']"));
                 User user = new User();
-                user.adsoyad = "sohistory14";
+                user.adsoyad = "hasan ali";
                 user.eposta = tempmail;
-                user.kullaniciadi = "sohistory14";
+                user.kullaniciadi = "so50history";
                 user.sifre = "historyso2q";
                 email.SendKeys(user.eposta);
+                Thread.Sleep(1000);
                 fullname.SendKeys(user.adsoyad);
+                Thread.Sleep(1000);
                 username.SendKeys(user.kullaniciadi);
+                Thread.Sleep(1000);
                 password.SendKeys(user.sifre);
+                Thread.Sleep(1000);
                 Kayıtbutton.Click();
                 Thread.Sleep(5000);
 
+                Thread.Sleep(1000);
                 SelectElement oSelect = new SelectElement(driver.FindElement(By.XPath("//*[@title='Ay:']")));
                 oSelect.SelectByText("Mayıs");
 
+                Thread.Sleep(1000);
                 SelectElement oSelect2 = new SelectElement(driver.FindElement(By.XPath("//*[@title='Gün:']")));
                 oSelect2.SelectByText("1");
 
+                Thread.Sleep(1000);
                 SelectElement oSelect3 = new SelectElement(driver.FindElement(By.XPath("//*[@title='Yıl:']")));
                 oSelect3.SelectByText("1998");
 
@@ -299,7 +312,6 @@ namespace ConsoleApp2
                 #endregion
 
                 var codelink = "";
-                var sayaç = 0;
                 while (true)
                 {
 
@@ -313,7 +325,6 @@ namespace ConsoleApp2
                             kodutekrargonder.Click();
                             Thread.Sleep(2500);
                             driver.SwitchTo().Window(driver.WindowHandles.First());
-                            sayaç = 0;
                         }
                         codelink = driver.FindElement(By.CssSelector("#email_content > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td > table > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(2)")).GetAttribute("innerHTML");
 
@@ -329,10 +340,10 @@ namespace ConsoleApp2
 
                 try
                 {
-
+                    Thread.Sleep(1000);
                     IWebElement emailconfirmationcode = driver.FindElement(By.Name("email_confirmation_code"));
                     emailconfirmationcode.SendKeys(codelink);
-
+                    Thread.Sleep(1000);
                     IWebElement Kayıtbuttonİleri = driver.FindElement(By.XPath("//button[. = 'İleri']"));
                     Kayıtbuttonİleri.Click();
 
